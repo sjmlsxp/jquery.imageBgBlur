@@ -19,5 +19,8 @@ $(selector).imageBgBlur({
 ```
 可以通过以上3个data参数，进行单个的调整
 
+## demo地址
+
+[http://sjmlsxp.github.io/imagedemo/](http://sjmlsxp.github.io/imagedemo/)
 
 //todo 其他说明
