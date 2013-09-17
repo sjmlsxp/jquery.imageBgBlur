@@ -2,7 +2,7 @@
 (function($) {
 	var ie = !-[1,];
 
-	$.fn.blur = function(options){
+	$.fn.imageBgBlur = function(options){
 		var defaults = {
 			selector:'img',
 			bgColor:"fff",
@@ -26,12 +26,12 @@
 				position = -left + "px " + (-top +"px");
 
 			changeColor({
-				bgColor:bgColor,
+				bgColor:bgColor+"",
 				opacity:opacity,
 				el:txtWrap
 			});
 
-			blur(txtBg,imgSrc,strength,position);
+			imageblur(txtBg,imgSrc,strength,position);
 		});
 	}
 
@@ -93,7 +93,7 @@
 	    }
 	}
 
-	function blur(element, src, strength, position){
+	function imageblur(element, src, strength, position){
 		if(ie){
 			element.attr("style","background: url("+src+") no-repeat "+position+";filter: progid:DXImagetransform.microsoft.blur(makeshadow=false,pixelradius="+(strength+4)+",shadowopacity=0);");
 			return;
