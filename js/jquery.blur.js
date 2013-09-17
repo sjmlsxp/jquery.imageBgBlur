@@ -98,10 +98,10 @@
 			element.attr("style","background: url("+src+") no-repeat "+position+";filter: progid:DXImagetransform.microsoft.blur(makeshadow=false,pixelradius="+(strength+4)+",shadowopacity=0);");
 			return;
 		}
-		if(window.WebKitPoint){
-	        element.css({"background":'url('+src+') no-repeat '+position,"-webkit-filter":"blur("+(strength+4)+"px)"});
-	        return;
-		};
+		// if(window.WebKitPoint){
+	 //        element.css({"background":'url('+src+') no-repeat '+position,"-webkit-filter":"blur("+(strength+4)+"px)"});
+	 //        return;
+		// };
 
 	    var image = new Image();
 	    image.onload = function(e){
