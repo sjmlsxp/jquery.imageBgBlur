@@ -12,5 +12,12 @@ $(selector).imageBgBlur({
 })
 ```
 
+## 单个参数调整
+
+``` html
+<div class="txt" data-bgcolor="633" data-opacity="0.2" data-strength="0.2"></div>
+```
+可以通过以上3个data参数，进行单个的调整
+
 
 //todo 其他说明
