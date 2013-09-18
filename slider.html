@@ -92,8 +92,10 @@ $(function(){
 		},
 		blurBack:function(){
 			var txt = $(this).find(".txt");
-			blured++
-			txt.animate({"margin-bottom": 0}, 500)
+			
+			txt.animate({"margin-bottom": 0}, 500, function(){
+				blured++
+			})
 		}
 	});
 
