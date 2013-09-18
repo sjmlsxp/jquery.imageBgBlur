@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>文字模糊背景播放器</title>
+<meta name="author" content="shenmailg@gmail.com">
+<link rel="stylesheet" href="css/typo.css">
+<style type="text/css">
+.silder{position: relative; width: 960px; margin: 50px auto; line-height: 1.5}
+.J_blur{position: relative;}
+.J_blur .txt{position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; background-color: rgba(102,102,102,.8); *background-color:#666;}
+.J_blur .txtWrap,.J_blur .txtBg{position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 2;}
+.J_blur .txtBg{z-index: 1;}
+
+.silder .item{position: absolute; top: 0; left: 0; overflow: hidden;}
+.silder .item .txt{position: absolute; bottom: 0; left: 0; width: 100%; height: 45px; overflow: hidden;}
+.silder .active .txt{}
+.silder .item .summary{text-align: center; padding: 14px 0 0;}
+.silder .item .summary h3,.silder .item .summary p{color: #ccc; font-size: 12px; line-height: 1.5;}
+.silder .item .summary h3{margin-bottom: 15px;}
+
+.silder .active .summary{text-align: left; padding: 5px 35px; height: 110px;}
+.silder .active .summary h3{color: #fff; font-size: 14px; margin-bottom: 5px;}
+.silder .active .summary p{color: #aaa}
+
+.silder .item650x256{width: 650px; height: 256px;}
+.silder .active .summaryLarger{padding-right: 180px; background:url(../images/ico_download.png) no-repeat 100% 50%;}
+.silder .active .summaryLarger h3{font-size: 30px; margin-bottom: 0}
+
+.silder .item310x164{top: 0; left: 650px; width: 310px; height: 164px;}
+.silder .item310x164 .txt{bottom: 10px; line-height: 45px; text-align: center; color: #ccc;}
+.silder .item360x194{top: 256px; left: 0; width: 360px; height: 194px;}
+.silder .item290x194{top: 256px; left: 360px; width: 290px; height: 194px;}
+.silder .item310x286{top: 164px; left: 650px; width: 310px; height: 286px;}
+</style>
+</head>
+<body>
+<div class="silder">
+	<a class="J_blur item item650x256" href="#">
+		<img src="temp/img650x256.jpg" width="650" height="256">
+		<div class="txt" data-bgcolor="633" data-opacity="0.2" data-strength="8">
+			<div class="summary summaryLarger">
+				<h3>《拳皇13》PC 封测版下载放出</h3>
+				<p>《罗马2：全面战争》是PC平台独占的策略战棋类游戏。游戏的故事将发生在史上最富盛名的战争时代，会把最为庞大的扩张战争和场面最宏伟的即时战斗场景合二为一，规模为战略游戏之最。</p>
+			</div>
+		</div>
+	</a>
+	<a class="item item310x164" href="#">
+		<img src="temp/img310x164.jpg" width="310" height="164">
+		<p class="txt">植物大战僵死（非模糊背景模块）</p>
+	</a>
+	<a class="J_blur item item360x194" href="#">
+		<img src="temp/img360x194.jpg" width="360" height="194">
+		<div class="txt" data-opacity="0.1">
+			<div class="summary">
+				<h3>Konami日前正式宣布将发行《恶魔城：暗影之王》</h3>
+				<p>《罗马2：全面战争》是PC平台独占的策略战棋类游戏。游戏的故事将发生在史上最富盛名的战争时代，会把最为庞大的扩张战争和场面最宏伟的即时战斗场景合二为一，规模为战略游戏之最。</p>
+			</div>
+		</div>
+	</a>
+	<a class="J_blur item item290x194" href="#">
+		<img src="temp/img290x194.jpg" width="290" height="194">
+		<div class="txt" data-bgcolor="000" data-opacity="0.3">
+			<div class="summary">
+				<h3>雷曼：传奇 &nbsp; Rayman Legends</h3>
+				<p>《罗马2：全面战争》是PC平台独占的策略战棋类游戏。游戏的故事将发生在史上最富盛名的战争时代，会把最为庞大的扩张战争和场面最宏伟的即时战斗场景合二为一，规模为战略游戏之最。</p>
+			</div>
+		</div>
+	</a>
+	<a class="J_blur item item310x286" href="#">
+		<img src="temp/img310x286.jpg" width="310" height="286">
+		<div class="txt" data-opacity="0.1">
+			<div class="summary">
+				<h3>资源下载《雷曼：传奇》横版经典神作登场</h3>
+				<p>《罗马2：全面战争》是PC平台独占的策略战棋类游戏。游戏的故事将发生在史上最富盛名的战争时代，会把最为庞大的扩张战争和场面最宏伟的即时战斗场景合二为一，规模为战略游戏之最。</p>
+			</div>
+		</div>
+	</a>
+</div>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.blur.js"></script>
+<script type="text/javascript">
+$(function(){
+	var blured = 0;
+
+	$(".J_blur").imageBgBlur({
+		blurBefore:function(){
+			var txt = $(this).find(".txt");
+
+			txt.css("margin-bottom",-45);
+		},
+		blurBack:function(){
+			var txt = $(this).find(".txt");
+			blured++
+			txt.animate({"margin-bottom": 0}, 500)
+		}
+	});
+
+	$(".silder").each(function(){
+		var $this = $(this),
+			items = $this.find(".J_blur"),
+			len = items.size(),
+			doOver = function(el){
+				var $item = el,
+					$txt = $item.find(".txt");
+
+				if($txt.is(":animated"))$txt.stop();
+				$item.addClass('active');
+				$txt.animate({height:120}, 500);
+			},
+			doOut = function(el){
+				var $item = el,
+					$txt = $item.find(".txt");
+
+				if($txt.is(":animated"))$txt.stop();
+				$txt.animate({height:45}, 500,function(){
+					$item.removeClass('active');
+				})
+			},
+			bindHover = function(){
+				items.hover(function(){
+					var $this = $(this);
+					hoverTimer = setTimeout(function(){
+						doOver($this);
+					},100)
+				},function(){
+					clearTimeout(hoverTimer);
+					doOut($(this));
+				})
+			},
+			randomHover = function(){
+				var prev = len,
+					current = 0,
+					randomTimer,
+					doRandom = function(){
+						randomTimer = setInterval(function(){
+							prev = current;
+							current = parseInt(Math.random()*len,10);
+							console.log(current)
+							doOut(items.eq(prev))
+							doOver(items.eq(current));
+						},2000);
+					};
+				doRandom();
+				$this.hover(function(event){
+					var index = $(event.target).closest('.J_blur').index();
+					
+					if(index>0)index = index-1;
+					// console.log(current)
+					if(index !== current)doOut(items.eq(current));
+					clearInterval(randomTimer);
+				},function(){
+					doRandom();
+				})
+			},
+			timer,hoverTimer;
+
+		timer = setInterval(function(){
+			if(blured === len){
+				clearInterval(timer);
+				bindHover();
+				randomHover();
+			}
+		},10);
+	})
+})
+</script>
+</body>
+</html>

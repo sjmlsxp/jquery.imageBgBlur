@@ -7,23 +7,30 @@
 			selector:'img',
 			bgColor:"fff",
 			opacity:.55,
-			strength:6
+			strength:6,
+			blurPosition:"0 100%",
+			blurBefore:$.noop(),
+			blurBack:$.noop()
 		}
 
 		var opts = $.extend(defaults, options);
 
 		return this.each(function() {
 			var $this = $(this),
+				_this = this,
 				imgSrc = $this.find(opts.selector).attr("src"),
 				txt = $this.find(".txt"),
 				bgColor = txt.data('bgcolor') || opts.bgColor,
 				opacity = txt.data('opacity') || opts.opacity,
 				strength = txt.data('strength') || opts.strength,
+				blurPosition = txt.data('blurposition') || opts.blurPosition,
 				txtWrap = txt.wrapInner("<div class='txtWrap' />").find(".txtWrap"),
 				txtBg = $('<div class="txtBg" />').appendTo(txt),
 				top = txt.position().top,
 				left = txt.position().left,
-				position = -left + "px " + (-top +"px");
+				position = blurPosition || -left + "px " + (-top +"px");
+
+			opts.blurBefore.call(_this);
 
 			changeColor({
 				bgColor:bgColor+"",
@@ -31,7 +38,7 @@
 				el:txtWrap
 			});
 
-			imageblur(txtBg,imgSrc,strength,position);
+			imageblur(txtBg,imgSrc,strength,position,opts.blurBack,_this);
 		});
 	}
 
@@ -93,7 +100,7 @@
 	    }
 	}
 
-	function imageblur(element, src, strength, position){
+	function imageblur(element, src, strength, position,callback,scope){
 		if(ie){
 			element.attr("style","background: url("+src+") no-repeat "+position+";filter: progid:DXImagetransform.microsoft.blur(makeshadow=false,pixelradius="+(strength+4)+",shadowopacity=0);");
 			return;
@@ -121,8 +128,9 @@
 	            }
 	        }
 	        context.globalAlpha = 1;
-	        console.log(position)
+
 	        element.css("background",'url('+canvas.toDataURL()+') no-repeat '+position);
+	        callback.call(scope);
 	    }
 	    image.src = src;
 	}
