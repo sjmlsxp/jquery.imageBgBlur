@@ -137,7 +137,6 @@ $(function(){
 						randomTimer = setInterval(function(){
 							prev = current;
 							current = parseInt(Math.random()*len,10);
-							console.log(current)
 							doOut(items.eq(prev))
 							doOver(items.eq(current));
 						},2000);

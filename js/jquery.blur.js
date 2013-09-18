@@ -30,7 +30,7 @@
 				left = txt.position().left,
 				position = blurPosition || -left + "px " + (-top +"px");
 
-			opts.blurBefore.call(_this);
+			opts.blurBefore && opts.blurBefore.call(_this);
 
 			changeColor({
 				bgColor:bgColor+"",
@@ -130,7 +130,7 @@
 	        context.globalAlpha = 1;
 
 	        element.css("background",'url('+canvas.toDataURL()+') no-repeat '+position);
-	        callback.call(scope);
+	        callback && callback.call(scope);
 	    }
 	    image.src = src;
 	}
