@@ -24,10 +24,10 @@ $(selector).imageBgBlur({
 
 ## demo地址
 
-[http://sjmlsxp.github.io/imagedemo/](http://sjmlsxp.github.io/imagedemo/)
+[http://sjmlsxp.github.io/jquery.imageBgBlur/](http://sjmlsxp.github.io/jquery.imageBgBlur/)
 
 ## 应用示例demo地址
 
-[http://sjmlsxp.github.io/imagedemo/slider.html](http://sjmlsxp.github.io/imagedemo/slider.html)
+[http://sjmlsxp.github.io/jquery.imageBgBlur/slider.html](http://sjmlsxp.github.io/jquery.imageBgBlur/slider.html)
 
 //todo 其他说明
