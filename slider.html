@@ -7,36 +7,36 @@
 <meta name="author" content="shenmailg@gmail.com">
 <link rel="stylesheet" href="css/typo.css">
 <style type="text/css">
-.silder{position: relative; width: 960px; margin: 50px auto; line-height: 1.5}
+.slider{position: relative; width: 960px; margin: 50px auto; line-height: 1.5}
 .J_blur{position: relative;}
 .J_blur .txt{position: absolute; bottom: 0; left: 0; width: 100%; overflow: hidden; background-color: rgba(102,102,102,.8); *background-color:#666;}
 .J_blur .txtWrap,.J_blur .txtBg{position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 2;}
 .J_blur .txtBg{z-index: 1;}
 
-.silder .item{position: absolute; top: 0; left: 0; overflow: hidden;}
-.silder .item .txt{position: absolute; bottom: 0; left: 0; width: 100%; height: 45px; overflow: hidden;}
-.silder .active .txt{}
-.silder .item .summary{text-align: center; padding: 14px 0 0;}
-.silder .item .summary h3,.silder .item .summary p{color: #ccc; font-size: 12px; line-height: 1.5;}
-.silder .item .summary h3{margin-bottom: 15px;}
+.slider .item{position: absolute; top: 0; left: 0; overflow: hidden;}
+.slider .item .txt{position: absolute; bottom: 0; left: 0; width: 100%; height: 45px; overflow: hidden;}
+.slider .active .txt{}
+.slider .item .summary{text-align: center; padding: 14px 0 0;}
+.slider .item .summary h3,.slider .item .summary p{color: #ccc; font-size: 12px; line-height: 1.5;}
+.slider .item .summary h3{margin-bottom: 15px;}
 
-.silder .active .summary{text-align: left; padding: 5px 35px; height: 110px;}
-.silder .active .summary h3{color: #fff; font-size: 14px; margin-bottom: 5px;}
-.silder .active .summary p{color: #aaa}
+.slider .active .summary{text-align: left; padding: 5px 35px; height: 110px;}
+.slider .active .summary h3{color: #fff; font-size: 14px; margin-bottom: 5px;}
+.slider .active .summary p{color: #aaa}
 
-.silder .item650x256{width: 650px; height: 256px;}
-.silder .active .summaryLarger{padding-right: 180px; background:url(../images/ico_download.png) no-repeat 100% 50%;}
-.silder .active .summaryLarger h3{font-size: 30px; margin-bottom: 0}
+.slider .item650x256{width: 650px; height: 256px;}
+.slider .active .summaryLarger{padding-right: 180px; background:url(../images/ico_download.png) no-repeat 100% 50%;}
+.slider .active .summaryLarger h3{font-size: 30px; margin-bottom: 0}
 
-.silder .item310x164{top: 0; left: 650px; width: 310px; height: 164px;}
-.silder .item310x164 .txt{bottom: 10px; line-height: 45px; text-align: center; color: #ccc;}
-.silder .item360x194{top: 256px; left: 0; width: 360px; height: 194px;}
-.silder .item290x194{top: 256px; left: 360px; width: 290px; height: 194px;}
-.silder .item310x286{top: 164px; left: 650px; width: 310px; height: 286px;}
+.slider .item310x164{top: 0; left: 650px; width: 310px; height: 164px;}
+.slider .item310x164 .txt{bottom: 10px; line-height: 45px; text-align: center; color: #ccc;}
+.slider .item360x194{top: 256px; left: 0; width: 360px; height: 194px;}
+.slider .item290x194{top: 256px; left: 360px; width: 290px; height: 194px;}
+.slider .item310x286{top: 164px; left: 650px; width: 310px; height: 286px;}
 </style>
 </head>
 <body>
-<div class="silder">
+<div class="slider">
 	<a class="J_blur item item650x256" href="#">
 		<img src="temp/img650x256.jpg" width="650" height="256">
 		<div class="txt" data-bgcolor="633" data-opacity="0.2" data-strength="8">
@@ -97,7 +97,7 @@ $(function(){
 		}
 	});
 
-	$(".silder").each(function(){
+	$(".slider").each(function(){
 		var $this = $(this),
 			items = $this.find(".J_blur"),
 			len = items.size(),
