@@ -103,6 +103,7 @@
 	function imageblur(element, src, strength, position,callback,scope){
 		if(ie){
 			element.attr("style","background: url("+src+") no-repeat "+position+";filter: progid:DXImagetransform.microsoft.blur(makeshadow=false,pixelradius="+(strength+4)+",shadowopacity=0);");
+	        callback && callback.call(scope);
 			return;
 		}
 		// if(window.WebKitPoint){
